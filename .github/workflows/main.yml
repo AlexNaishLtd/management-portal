@@ -30,5 +30,11 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      - run: ls -ltr .netlify
-      - run: ls -ltr .netlify/functions
+        # Creates a status check with link to preview
+      - name: Add status
+        uses: Sibz/github-status-action@v1.1.1
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          context: Branch Deployment
+          state: success
+          target_url: https://${{ env.BRANCH_NAME }}--naish-management-portal.netlify.app
