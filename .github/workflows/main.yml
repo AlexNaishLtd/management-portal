@@ -23,9 +23,12 @@ jobs:
         with:
           node-version: 14.x
       - run: npm ci
+      - name: Force latest netlify-cli
+        run: npm install netlify-cli -g
       - name: Deploy
         run: netlify deploy --build --alias=${{ env.BRANCH_NAME }}
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      - run: ls -ltr
+      - run: ls -ltr .netlify
+      - run: ls -ltr .netlify/functions
