@@ -1,4 +1,3 @@
-const { isTargetLikeServerless } = require('next/dist/next-server/server/config');
 const index = require('../pages/index');
 
 describe('index component renders', () => {
