@@ -1,0 +1,9 @@
+{
+  "./**/*.{js,jsx,ts,tsx}": [
+    "prettier",
+    "eslint --fix",
+  ],
+  "./**/*.{css,json,yml}": [
+    "prettier"
+  ]
+}

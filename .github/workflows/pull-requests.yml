@@ -1,41 +1,41 @@
 name: 'PR Deployments'
 
 on:
-  push:
-    branches-ignore:
-      - master
-      - main
+    push:
+        branches-ignore:
+            - master
+            - main
 
 defaults:
-  run:
-    shell: bash
+    run:
+        shell: bash
 
 jobs:
-  deploy:
-    name: 'Deploy'
-    runs-on: ubuntu-latest
+    deploy:
+        name: 'Deploy'
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+        steps:
+            - uses: actions/checkout@v2
 
-      # Sets the branch name as environment variable
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm ci
-      - name: Force latest netlify-cli
-        run: npm install netlify-cli -g
-      - name: Deploy
-        run: netlify deploy --build --alias=${{ env.BRANCH_NAME }}
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        # Creates a status check with link to preview
-      - name: Add status
-        uses: Sibz/github-status-action@v1.1.1
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: Branch Deployment
-          state: success
-          target_url: https://${{ env.BRANCH_NAME }}--naish-management-portal.netlify.app
+            # Sets the branch name as environment variable
+            - uses: nelonoel/branch-name@v1.0.1
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
+            - run: npm ci
+            - name: Force latest netlify-cli
+              run: npm install netlify-cli -g
+            - name: Deploy
+              run: netlify deploy --build --alias=${{ env.BRANCH_NAME }}
+              env:
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+              # Creates a status check with link to preview
+            - name: Add status
+              uses: Sibz/github-status-action@v1.1.1
+              with:
+                  authToken: ${{ secrets.GITHUB_TOKEN }}
+                  context: Branch Deployment
+                  state: success
+                  target_url: https://${{ env.BRANCH_NAME }}--naish-management-portal.netlify.app

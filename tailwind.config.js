@@ -2,10 +2,10 @@ module.exports = {
     purge: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
     darkMode: false,
     theme: {
-        extend: {},
+        extend: {}
     },
     variants: {
-        extend: {},
+        extend: {}
     },
     plugins: []
-}
+};
