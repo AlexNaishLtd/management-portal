@@ -1,0 +1,31 @@
+name: 'Production Deployments'
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nelonoel/branch-name@v1.0.1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci
+      - name: Force latest netlify-cli
+        run: npm install netlify-cli -g
+      - name: Deploy
+        run: netlify deploy --build --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

@@ -1,5 +1,3 @@
-
-
 const Content = (props) => {
     return(
         <div className="mb-auto h-10">

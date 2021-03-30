@@ -14,7 +14,7 @@ function HomePage() {
             <Footer/>
         </div>
     )
-}
+};
   
-  export default HomePage
+export default HomePage;
   
