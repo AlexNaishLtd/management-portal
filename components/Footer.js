@@ -1,5 +1,5 @@
-import Alink from './Alink';
 import Copyright from './Copyright';
+import FooterLink from './FooterLink';
 
 const Footer = () => {
     return (
@@ -9,15 +9,15 @@ const Footer = () => {
                 <div className="mx-8">
                     <h4 className="pt-3">Community Links</h4>
                     <div className="flex flex-row justify-center flex-col">
-                        <Alink href="https://github.com/alexnaish" label="Alex's Github" />
-                        <Alink href="https://github.com/samnaish" label="Sam's Github" />
+                        <FooterLink href="https://github.com/alexnaish" label="Alex's Github" />
+                        <FooterLink href="https://github.com/samnaish" label="Sam's Github" />
                     </div>
                 </div>
                 <div className="mx-8">
                     <h4 className="pt-3">Terms</h4>
                     <div className="flex flex-row justify-center flex-col">
-                        <Alink href="#" label="Terms of Service" />
-                        <Alink href="#" label="Terms of conditions" />
+                        <FooterLink href="#" label="Terms of Service" />
+                        <FooterLink href="#" label="Terms of conditions" />
                     </div>
                 </div>
             </div>
