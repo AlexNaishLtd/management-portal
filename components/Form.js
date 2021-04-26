@@ -1,7 +1,6 @@
 import {useForm} from "react-hook-form";
 
 import Select from "./Select";
-import Option from "./Option";
 import TextArea from "./TextArea";
 import Input from "./Input";
 import CheckBox from "./CheckBox";
@@ -20,10 +19,10 @@ const Form = ({}) => {
                     <div className="flex flex-col mb-4">
                         <TextArea label="text area" name="txtname" register={register}/>
                         <Select name="selectBox" register={register} required>
-                            <Option value="-" content="--"/>
-                            <Option value="dodo" content="dodo"/>
-                            <Option value="dog" content="dog"/>
-                            <Option value="something" content="something"/>
+                            <option value="-">--</option>
+                            <option value="dodo">dodo</option>
+                            <option value="dog">dog</option>
+                            <option value="something">something</option>
                         </Select>
                     </div>
                     <input type="submit"/>
