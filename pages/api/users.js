@@ -19,12 +19,12 @@ const helloGetHandler = async (req, res) => {
                   }
               }
             : {};
-
         const users = await User.find({ ...emailFilter, ...cursorFilter }, 'name email', {
             limit: 20,
             sort: { _id: 1, email: 1 }
         });
-        res.status(200).json({ success: true, data: users });
+
+        return res.status(200).json({ success: true, data: users });
     } catch (error) {
         res.status(400).json({ success: false });
     }
