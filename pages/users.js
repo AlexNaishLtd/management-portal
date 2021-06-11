@@ -1,6 +1,7 @@
 import { useSWRInfinite } from 'swr';
 
-import DefaultLayout from '../layouts/default';
+import Button from '@/components/Button';
+import DefaultLayout from '@/layouts/default';
 
 const PAGE_SIZE = 20;
 
@@ -31,11 +32,7 @@ const UsersPage = () => {
             })}
             <div>{isLoading && 'Loading...'}</div>
             {!isAtTheEnd && !isEmpty && (
-                <button
-                    className="p-2 my-2 bg-blue-500 text-white rounded-md focus:outline-none focus:ring-2 ring-blue-300 ring-offset-2"
-                    onClick={() => setSize(size + 1)}>
-                    Load More
-                </button>
+                <Button onClick={() => setSize(size + 1)}>Load More</Button>
             )}
         </DefaultLayout>
     );
