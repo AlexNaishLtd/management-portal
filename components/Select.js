@@ -3,7 +3,7 @@ const Select = ({ name, register, required, children }) => {
         <select className="border mt-2" {...register(name, { required })}>
             {children}
         </select>
-    )
-}
+    );
+};
 
 export default Select;
