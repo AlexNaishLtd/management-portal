@@ -24,7 +24,7 @@ const helloGetHandler = async (req, res) => {
             sort: { _id: 1, email: 1 }
         });
 
-        return res.status(200).json({ success: true, data: users });
+        return res.status(200).json(users);
     } catch (error) {
         res.status(400).json({ success: false });
     }
