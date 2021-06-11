@@ -19,11 +19,24 @@ Default.args = {
     children: 'Click Me'
 };
 
+export const DefaultDisabled = Template.bind({});
+DefaultDisabled.args = {
+    disabled: true,
+    children: 'Click Me'
+};
+
 export const Success = Template.bind({});
 Success.args = {
     type: 'button',
     theme: 'success',
     onClick: () => alert('Success click'),
+    children: 'Success Action'
+};
+
+export const SuccessDisabled = Template.bind({});
+SuccessDisabled.args = {
+    theme: 'success',
+    disabled: true,
     children: 'Success Action'
 };
 
@@ -35,10 +48,24 @@ Warning.args = {
     children: 'Warn Me'
 };
 
+export const WarningDisabled = Template.bind({});
+WarningDisabled.args = {
+    theme: 'warn',
+    disabled: true,
+    children: 'Warn Me'
+};
+
 export const Danger = Template.bind({});
 Danger.args = {
     type: 'button',
     theme: 'danger',
     onClick: () => alert('Danger click'),
+    children: 'Danger'
+};
+
+export const DangerDisabled = Template.bind({});
+DangerDisabled.args = {
+    theme: 'danger',
+    disabled: true,
     children: 'Danger'
 };
