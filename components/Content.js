@@ -1,5 +1,5 @@
 const Content = (props) => {
-    return <div className="mb-auto h-10">{props.children}</div>;
+    return <div className="mb-auto">{props.children}</div>;
 };
 
 export default Content;
