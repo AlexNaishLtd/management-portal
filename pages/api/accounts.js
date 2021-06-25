@@ -11,6 +11,9 @@ const listAccountsHandler = async (req, res) => {
 
         return res.status(200).json(accounts);
     } catch (error) {
+        console.log('======================');
+        console.log(error);
+        console.log('======================');
         return res.status(500).json({ success: false });
     }
 };
